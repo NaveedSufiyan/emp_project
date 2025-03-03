@@ -1,0 +1,215 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+        <a class="navbar-brand">Employee Management System</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <button class="btn btn-light me-2" (click)="toggleView('employees')">
+                        {{ showEmployees ? 'Hide Employees' : 'View Employees' }}
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-light me-2" (click)="toggleView('departments')">
+                        {{ showDepartments ? 'Hide Departments' : 'View Departments' }}
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-light me-2" (click)="toggleView('empPerformance')">
+                        {{ showEmpPerformance ? 'Hide Emp Performance' : 'View Emp Performance' }}
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/login">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-4">
+    <div *ngIf="showEmployees">
+        <div class="mb-3">
+            <label for="departmentName" class="form-label">Department Name:</label>
+            <div class="input-group">
+                <input type="text" id="departmentName" [(ngModel)]="departmentNameToSearch" class="form-control">
+                <button class="btn btn-outline-primary" (click)="searchEmployeesByDepartment()">Search</button>
+            </div>
+        </div>
+
+        <div *ngIf="loading && showEmployees" class="text-center mt-4">Loading employees...</div>
+        <div *ngIf="error && showEmployees" class="alert alert-danger mt-4">{{ error }}</div>
+
+        <div class="row row-cols-1 row-cols-md-3 g-4 mt-4" *ngIf="employees && employees.length > 0 && showEmployees">
+            <div class="col" *ngFor="let employee of employees">
+                <div class="card h-100 employee-card">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            {{ employee.firstName }} {{ employee.lastName }}
+                        </h5>
+                        <p class="card-text">
+                            <strong>Email:</strong> {{ employee.email }}<br>
+                            <strong>Department Code:</strong> {{ employee.departmentCode }}<br>
+                            <strong>Performance ID:</strong> {{ employee.performanceId }}
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Employee ID: {{ employee.id }}</small><br>
+                        <button class="btn btn-sm btn-primary mt-2" (click)="openEditModal(employee)">Edit</button>
+                        <button class="btn btn-sm btn-danger mt-2" (click)="deleteEmployee(employee.id)">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="employees && employees.length === 0 && !loading && !error && showEmployees" class="text-center mt-4">
+            No employees found.
+        </div>
+    </div>
+
+    <div *ngIf="showDepartments">
+        <div *ngIf="loading && showDepartments" class="text-center mt-4">Loading departments...</div>
+        <div *ngIf="error && showDepartments" class="alert alert-danger mt-4">{{ error }}</div>
+
+        <div class="row row-cols-1 row-cols-md-3 g-4 mt-4" *ngIf="departments && departments.length > 0 && showDepartments">
+            <div class="col" *ngFor="let department of departments">
+                <div class="card h-100 department-card">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            {{ department.departmentName }}
+                        </h5>
+                        <p class="card-text">
+                            <strong>Description:</strong> {{ department.departmentDescription }}<br>
+                            <strong>Code:</strong> {{ department.departmentCode }}
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Department ID: {{ department.id }}</small><br>
+                        <button class="btn btn-sm btn-primary mt-2" (click)="openEditDepartmentModal(department)">Edit</button>
+                        <button class="btn btn-sm btn-danger mt-2" (click)="deleteDepartment(department.id)">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="departments && departments.length === 0 && !loading && !error && showDepartments" class="text-center mt-4">
+            No departments found.
+        </div>
+    </div>
+
+    <div *ngIf="showEmpPerformance">
+        <div class="mb-3">
+            <label for="performanceId" class="form-label">Enter Employee Id:</label>
+            <div class="input-group">
+                <input type="number" id="performanceId" [(ngModel)]="performanceIdToSearch" class="form-control">
+                <button class="btn btn-outline-primary" (click)="searchEmployeePerformance()">Search</button>
+            </div>
+        </div>
+
+        <div *ngIf="loading && showEmpPerformance" class="text-center mt-4">Loading employee performance...</div>
+        <div *ngIf="error && showEmpPerformance" class="alert alert-danger mt-4">{{ error }}</div>
+
+        <div class="row row-cols-1 row-cols-md-3 g-4 mt-4" *ngIf="employeeWithPerformance && showEmpPerformance">
+            <div class="col">
+                <div class="card h-100 employee-performance-card">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            {{ employeeWithPerformance.employee.firstName }} {{ employeeWithPerformance.employee.lastName }}
+                        </h5>
+                        <p class="card-text">
+                            <strong>Email:</strong> {{ employeeWithPerformance.employee.email }}<br>
+                            <strong>Department Code:</strong> {{ employeeWithPerformance.employee.departmentCode }}<br>
+                            <strong>Role:</strong> {{ employeeWithPerformance.performance.title }}<br>
+                            <strong>Description:</strong> {{ employeeWithPerformance.performance.description }}<br>
+                            <strong>Rating:</strong> {{ employeeWithPerformance.performance.rating }}
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Employee ID: {{ employeeWithPerformance.employee.id }}</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="!employeeWithPerformance && !loading && !error && performanceIdToSearch && showEmpPerformance" class="text-center mt-4">
+            No employee performance found for ID: {{ performanceIdToSearch }}.
+        </div>
+    </div>
+</div>
+
+<div *ngIf="showEditModal && selectedEmployee" class="modal fade show" style="display: block;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Employee</h5>
+                <button type="button" class="close" (click)="closeEditModal()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="editEmployeeForm" (ngSubmit)="updateEmployee()">
+                    <div class="mb-3">
+                        <label for="firstName" class="form-label">First Name:</label>
+                        <input type="text" id="firstName" formControlName="firstName" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="lastName" class="form-label">Last Name:</label>
+                        <input type="text" id="lastName" formControlName="lastName" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email:</label>
+                        <input type="email" id="email" formControlName="email" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="departmentCode" class="form-label">Department Code:</label>
+                        <input type="text" id="departmentCode" formControlName="departmentCode" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="performanceId" class="form-label">Performance ID:</label>
+                        <input type="number" id="performanceId" formControlName="performanceId" class="form-control">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" (click)="closeEditModal()">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="showEditDepartmentModal && selectedDepartment" class="modal fade show" style="display: block;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Department</h5>
+                <button type="button" class="close" (click)="closeEditDepartmentModal()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="editDepartmentForm" (ngSubmit)="updateDepartment()">
+                    <div class="mb-3">
+                        <label for="departmentName" class="form-label">Department Name:</label>
+                        <input type="text" id="departmentName" formControlName="departmentName" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="departmentDescription" class="form-label">Description:</label>
+                        <textarea id="departmentDescription" formControlName="departmentDescription" class="form-control"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="departmentCode" class="form-label">Department Code:</label>
+                        <input type="text" id="departmentCode" formControlName="departmentCode" class="form-control">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" (click)="closeEditDepartmentModal()">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

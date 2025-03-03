@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0Hhonpy0aAfDlPzl53XbRdr2/HBAd02Nzl5tnq4a2Cq8jz9OBCypJy5Bv0CwOxwj0j0/6TLzjHGQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <ng-container *ngIf="role === 'user'">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand">Employee Management System</a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#userNavbarContent" aria-controls="userNavbarContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="userNavbarContent">
+                    <ul class="navbar-nav me-auto d-flex flex-row mt-3 mt-lg-0">
+                        <li class="nav-item text-center mx-2 mx-lg-1">
+                            <a routerLink="/userpage" routerLinkActive="active" class="nav-link" aria-current="page">
+                                <div>
+                                    <i class="fas fa-user fa-lg mb-1"></i>
+                                </div>
+                                User
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ms-auto d-flex flex-row mt-3 mt-lg-0">
+                        <li class="nav-item">
+                            <button class="btn btn-danger btn-sm" (click)="logout()">
+                                <i class="fas fa-sign-out-alt me-1"></i> Logout
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </ng-container>
+
+    <ng-container *ngIf="role === 'admin'">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold">Employee ManagementSystem</a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#adminNavbarContent" aria-controls="adminNavbarContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="adminNavbarContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <!-- <li class="nav-item">
+                            <a class="nav-link" routerLink="/employees" routerLinkActive="active">
+                                <i class="fas fa-users me-1"></i> Employees
+                            </a>
+                        </li> -->
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/admin" routerLinkActive="active">
+                                <i class="fas fa-home me-1"></i> admin
+                            </a>
+                        </li>
+
+                    </ul>
+
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <button class="nav-link" (click)="logout()">
+                                <i class="fas fa-sign-out-alt me-1"></i> Logout
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </ng-container>
+
+    <ng-container *ngIf="!role">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" routerLink="/">Employee Management System</a>
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/register">Register</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </ng-container>
+
+    <div class="container mt-4">
+        <router-outlet></router-outlet>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<div class="container login-container d-flex justify-content-center align-items-center vh-100">
+  <div class="card login-card shadow p-4 rounded">
+      <div class="text-center mb-3">
+          <img src="logo.png" alt="Bus Icon" class="img-fluid" style="width: 50px;">
+          <h4 class="text-primary mt-2">Employee Management System</h4>
+      </div>
+      <h2 class="text-center mb-3 text-primary">Login</h2>
+      <form (ngSubmit)="login()">
+          <div class="mb-2">
+              <label for="username" class="form-label small">Username</label>
+              <input type="text" class="form-control form-control-sm" id="username" [(ngModel)]="username" name="username" required>
+          </div>
+          <div class="mb-2">
+              <label for="password" class="form-label small">Password</label>
+              <input type="password" class="form-control form-control-sm" id="password" [(ngModel)]="password" name="password" required>
+          </div>
+          <div class="d-grid">
+              <button type="submit" class="btn btn-success btn-sm">Login</button>
+          </div>
+          <div *ngIf="errorMessage" class="mt-2 text-danger text-center">
+              {{ errorMessage }}
+          </div>
+      </form>
+      <div class="text-center mt-2">
+          <p class="small">Don't have an account? <a routerLink="/register" class="text-info">Register</a></p>
+      </div>
+  </div>
+</div>

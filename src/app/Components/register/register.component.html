@@ -1,0 +1,40 @@
+<div class="container d-flex justify-content-center align-items-center min-vh-100 p-3">
+    <div class="card shadow p-4 rounded w-100 mx-auto" style="max-width: 300px;">
+      <div class="text-center mb-3">
+        <img src="logo.png" alt="Bus Icon" style="width: 50px;">
+        <h4 class="text-primary mt-2">Employee ManagementSystem</h4>
+      </div>
+      <h2 class="text-center mb-3 text-primary">Register</h2>
+      <form (ngSubmit)="register()">
+        <div class="mb-2">
+          <label for="name" class="form-label small">Username</label>
+          <input type="text" class="form-control form-control-sm" id="name" [(ngModel)]="name" name="name" required>
+        </div>
+        <div class="mb-2">
+          <label for="email" class="form-label small">Email</label>
+          <input type="email" class="form-control form-control-sm" id="email" [(ngModel)]="email" name="email" required>
+        </div>
+        <div class="mb-2">
+          <label for="password" class="form-label small">Password</label>
+          <input type="password" class="form-control form-control-sm" id="password" [(ngModel)]="password" name="password" required>
+        </div>
+        <div class="mb-2">
+          <label for="confirmPassword" class="form-label small">Confirm Password</label>
+          <input type="password" class="form-control form-control-sm" id="confirmPassword" [(ngModel)]="confirmPassword" name="confirmPassword" required>
+        </div>
+        <div class="mb-3">
+          <label for="roles" class="form-label small">Roles</label>
+          <select class="form-select form-select-sm" id="roles" [(ngModel)]="roles" name="roles" required>
+            <option value="user">User</option>
+            <option value="admin">Admin</option>
+          </select>
+        </div>
+        <div class="d-grid">
+          <button type="submit" class="btn btn-success btn-sm">Register</button>
+        </div>
+        </form>
+        <div class="text-center mt-2">
+          <p class="small">Don't have an account? <a routerLink="/login" class="text-info">Login</a></p>
+        </div>
+      </div>
+  </div>

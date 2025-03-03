@@ -1,0 +1,87 @@
+/* Optional: Add custom styles here if needed */
+
+/* Example: Adjust card margins and shadows */
+
+
+
+.card {
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+  }
+  
+  .shadow {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Example: Center the loading/error messages */
+  .text-center.mt-4 {
+    text-align: center;
+    margin-top: 1rem;
+  }
+  
+  /* Example: Add some padding to the card body */
+  .card-body {
+    padding: 1.5rem;
+  }
+  
+  /* Example: Adjust the input group */
+  .input-group-sm > .form-control,
+  .input-group-sm > .btn {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.9rem;
+  }
+  
+  /* Example: Placeholder color */
+  ::placeholder {
+    color: #aaa;
+    opacity: 1;
+  }
+  
+  :-ms-input-placeholder {
+    color: #aaa;
+  }
+  
+  ::-ms-input-placeholder {
+    color: #aaa;
+  }
+  
+  /* Example: Input border radius */
+  .input-group-sm > .form-control {
+    border-radius: 4px 0 0 4px;
+  }
+  
+  .input-group-sm > .btn {
+    border-radius: 0 4px 4px 0;
+  }
+  
+  /* Example: Center Label */
+  .text-center.w-100 {
+    text-align: center;
+    width: 100%;
+  }
+  
+  /* Example: Add margin between label and input */
+  .form-label {
+    margin-bottom: 0.5rem;
+  }
+
+  /* Background image styling */
+.back{
+    background-image: url('../../assets/img1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.full-height{
+    margin-top: -50px;
+    padding-top: 30px;
+    min-width: 100dvw;
+    min-height: 100dvh;
+}
+
+.blurred{
+
+    backdrop-filter: blur();
+
+}

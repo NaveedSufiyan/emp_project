@@ -1,0 +1,17 @@
+.form-container {
+  max-width: 500px; /* Adjust as needed */
+  margin: 0 auto; /* Center the form */
+}
+
+.form-label {
+  font-weight: bold;
+}
+
+.btn-success,
+.btn-secondary {
+  min-width: 100px; /* Ensures buttons have equal width */
+}
+
+.d-flex.justify-content-end{
+  margin-top:20px;
+}

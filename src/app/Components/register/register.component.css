@@ -1,0 +1,87 @@
+.container.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1rem;
+  background: linear-gradient(135deg, #f0f8ff, #e1f5fe); /* Light, airy background */
+}
+
+.card.register-card {
+  width: 100%;
+  max-width: 350px; /* Slightly wider for better spacing */
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); /* Refined shadow */
+  background-color: #ffffff;
+  padding: 2rem;
+}
+
+.register-card .text-center img {
+  width: 60px;
+  margin-bottom: 1rem;
+}
+
+.register-card .text-primary {
+  color: #007bff; /* Bootstrap primary color */
+}
+
+.register-card h2 {
+  font-size: 1.9rem;
+  margin-bottom: 1.8rem;
+  font-weight: 600;
+}
+
+.register-card form .form-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #495057; /* Slightly darker label color */
+}
+
+.register-card form .form-control,
+.register-card form .form-select {
+  font-size: 0.95rem;
+  border-radius: 6px;
+  border: 1px solid #ced4da;
+  padding: 0.75rem 1rem;
+}
+
+.register-card form .form-control:focus,
+.register-card form .form-select:focus {
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.register-card form .btn-success {
+  background-color: #28a745;
+  border-color: #28a745;
+  padding: 0.85rem 1.3rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.register-card form .btn-success:hover {
+  background-color: #218838;
+  border-color: #1e7e34;
+}
+
+.register-card .text-center p {
+  font-size: 0.9rem;
+  margin-top: 1.5rem;
+}
+
+.register-card .text-info {
+  color: #17a2b8;
+  text-decoration: none;
+}
+
+.register-card .text-info:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 400px) {
+  .card.register-card {
+    padding: 1.5rem;
+  }
+}

@@ -1,0 +1,59 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand">
+            <img src="logo.png" alt="Logo" width="60" height="50" class="d-inline-block align-left">
+            Employee Management System
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <button class="btn btn-outline-light btn-sm" (click)="logout()">Logout</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class=" full-height back">
+
+    <div class="container mt-5 ">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="mb-3 ">
+                    <label for="performanceId" class="form-label text-center w-100">Enter Your Employee Id:</label>
+                    <div class="input-group input-group-sm">
+                        <input type="number" id="performanceId" [(ngModel)]="performanceIdToSearch" class="form-control"
+                            placeholder="Enter ID" />
+                        <button class="btn btn-primary btn-sm" (click)="searchEmployeePerformance()">Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div *ngIf="loading" class="text-center mt-4">Loading employee performance...</div>
+                <div *ngIf="error" class="alert alert-danger mt-4">{{ error }}</div>
+
+                <div *ngIf="employeeWithPerformance" class="card mt-4 shadow blurred">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ employeeWithPerformance.employee.firstName }} {{
+                            employeeWithPerformance.employee.lastName }}</h5>
+                        <p class="card-text">
+                            <strong>Email:</strong> {{ employeeWithPerformance.employee.email }}<br />
+                            <strong>Department Code:</strong> {{ employeeWithPerformance.employee.departmentCode
+                            }}<br />
+                            <strong>Role:</strong> {{ employeeWithPerformance.performance.title }}<br />
+                            <strong>Description:</strong> {{ employeeWithPerformance.performance.description }}<br />
+                            <strong>Rating:</strong> {{ employeeWithPerformance.performance.rating }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
