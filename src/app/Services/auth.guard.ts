@@ -11,5 +11,4 @@ export const authGuard: CanActivateFn = (route, state) => {const authService = i
     router.navigate(['/login']); // User is not authenticated, redirect to login
     return false; // Prevent access to the route
   }
-  return true;
 };

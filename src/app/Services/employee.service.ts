@@ -12,15 +12,8 @@ import { AuthService } from './auth.service';
 })
 
 export class EmployeeService {
-  constructor(private http: HttpClient ) { }
-  //private authService: AuthService
-  // private createAuthHeaders(): HttpHeaders {
-  //   const token = this.authService.getToken();
-  //   return new HttpHeaders({
-  //     'Content-Type': 'application/json',
-  //     'Authorization': token ? `Bearer ${token}` : ''
-  //   });
-  // }
+  constructor(private http: HttpClient) { }
+
 
 
   private employeeApiUrl = 'http://localhost:9191/api/employees';

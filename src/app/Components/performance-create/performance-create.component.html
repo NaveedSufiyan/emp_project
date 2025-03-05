@@ -10,19 +10,57 @@
             <div class="modal-body">
                 <form [formGroup]="performanceForm" (ngSubmit)="createPerformance()">
                     <div class="mb-3">
+                        <label for="id" class="form-label">Id:</label>
+                        <input type="number" id="id" formControlName="id" class="form-control"
+                               [ngClass]="{'is-invalid': performanceForm.get('id')?.touched && performanceForm.get('id')?.invalid}">
+                        <div *ngIf="performanceForm.get('id')?.touched && performanceForm.get('id')?.errors?.['required']" class="invalid-feedback">
+                            ID is required.
+                        </div>
+                        <div *ngIf="performanceForm.get('id')?.touched && performanceForm.get('id')?.errors?.['min']" class="invalid-feedback">
+                            ID must be a positive number.
+                        </div>
+                    </div>
+                    <div class="mb-3">
                         <label for="title" class="form-label">Title:</label>
-                        <input type="text" id="title" formControlName="title" class="form-control">
+                        <input type="text" id="title" formControlName="title" class="form-control"
+                               [ngClass]="{'is-invalid': performanceForm.get('title')?.touched && performanceForm.get('title')?.invalid}">
+                        <div *ngIf="performanceForm.get('title')?.touched && performanceForm.get('title')?.errors?.['required']" class="invalid-feedback">
+                            Title is required.
+                        </div>
+                        <div *ngIf="performanceForm.get('title')?.touched && performanceForm.get('title')?.errors?.['minlength']" class="invalid-feedback">
+                            Title must be at least 4 characters long.
+                        </div>
+                        <div *ngIf="performanceForm.get('title')?.touched && performanceForm.get('title')?.errors?.['maxlength']" class="invalid-feedback">
+                            Title cannot exceed 10 characters.
+                        </div>
                     </div>
                     <div class="mb-3">
                         <label for="description" class="form-label">Description:</label>
-                        <textarea id="description" formControlName="description" class="form-control"></textarea>
+                        <textarea id="description" formControlName="description" class="form-control"
+                                  [ngClass]="{'is-invalid': performanceForm.get('description')?.touched && performanceForm.get('description')?.invalid}"></textarea>
+                        <div *ngIf="performanceForm.get('description')?.touched && performanceForm.get('description')?.errors?.['required']" class="invalid-feedback">
+                            Description is required.
+                        </div>
+                        <div *ngIf="performanceForm.get('description')?.touched && performanceForm.get('description')?.errors?.['minlength']" class="invalid-feedback">
+                          Description must be at least 10 characters long.
+                        </div>
                     </div>
                     <div class="mb-3">
                         <label for="rating" class="form-label">Rating:</label>
-                        <input type="number" id="rating" formControlName="rating" class="form-control">
+                        <input type="number" id="rating" formControlName="rating" class="form-control"
+                               [ngClass]="{'is-invalid': performanceForm.get('rating')?.touched && performanceForm.get('rating')?.invalid}">
+                        <div *ngIf="performanceForm.get('rating')?.touched && performanceForm.get('rating')?.errors?.['required']" class="invalid-feedback">
+                            Rating is required.
+                        </div>
+                        <div *ngIf="performanceForm.get('rating')?.touched && performanceForm.get('rating')?.errors?.['min']" class="invalid-feedback">
+                            Rating must be a positive number.
+                        </div>
+                        <div *ngIf="performanceForm.get('rating')?.touched && performanceForm.get('rating')?.errors?.['max']" class="invalid-feedback">
+                            Rating cannot exceed 5.
+                        </div>
                     </div>
                     <div class="d-flex justify-content-end">
-                        <button type="submit" class="btn btn-success mr-2">Save</button>
+                        <button type="submit" class="btn btn-success mr-2" [disabled]="performanceForm.invalid">Save</button>
                         <button type="button" class="btn btn-secondary" (click)="closeModal()">Cancel</button>
                     </div>
                 </form>

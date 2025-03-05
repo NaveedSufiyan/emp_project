@@ -36,7 +36,7 @@
             <label for="departmentName" class="form-label">Department Name:</label>
             <div class="input-group">
                 <input type="text" id="departmentName" [(ngModel)]="departmentNameToSearch" class="form-control">
-                <button class="btn btn-outline-primary" (click)="searchEmployeesByDepartment()">Search</button>
+                <button class="btn btn-outline-primary btn-sm" (click)="searchEmployeesByDepartment()">Search</button>
             </div>
         </div>
 
@@ -116,6 +116,7 @@
             <div class="col">
                 <div class="card h-100 employee-performance-card">
                     <div class="card-body">
+                        <p class="text-center mt-2" ><b>Employee Details</b></p>
                         <h5 class="card-title">
                             {{ employeeWithPerformance.employee.firstName }} {{ employeeWithPerformance.employee.lastName }}
                         </h5>
@@ -134,9 +135,9 @@
             </div>
         </div>
 
-        <div *ngIf="!employeeWithPerformance && !loading && !error && performanceIdToSearch && showEmpPerformance" class="text-center mt-4">
+        <!-- <div *ngIf="!employeeWithPerformance && !loading && !error && performanceIdToSearch && showEmpPerformance" class="text-center mt-4">
             No employee performance found for ID: {{ performanceIdToSearch }}.
-        </div>
+        </div> -->
     </div>
 </div>
 

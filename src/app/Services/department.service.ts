@@ -8,7 +8,7 @@ import { catchError, throwError } from 'rxjs';
   providedIn: 'root'
 })
 export class DepartmentService {
-  private departmentApiUrl = 'http://localhost:8084/api/departments'; // Base URL
+  private departmentApiUrl = 'http://localhost:9191/api/departments'; // Base URL
 
   constructor(private http: HttpClient) { }
 

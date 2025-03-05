@@ -1,37 +1,158 @@
+/* Navbar */
+.navbar {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
 .navbar-brand {
-  font-weight: bold;
   font-size: 1.5rem;
+  font-weight: bold;
 }
 
-.employee-card,
-.department-card {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out;
+.navbar-nav .nav-item .btn {
+  font-size: 0.9rem;
 }
 
-.employee-card:hover,
-.department-card:hover {
-  transform: translateY(-5px);
+/* Container */
+.container {
+  max-width: 1200px;
 }
 
-.btn-light {
-  background-color: #f8f9fa;
-  border: 1px solid #dee2e6;
-}
-
-.btn-light:hover {
-  background-color: #e9ecef;
-}
-
-.input-group {
-  width: 300px;
-  margin-bottom: 1rem;
-}
-
-.input-group input {
+/* Input Group */
+.input-group .form-control {
   border-radius: 0.25rem 0 0 0.25rem;
 }
 
-.input-group button {
+.input-group .btn {
   border-radius: 0 0.25rem 0.25rem 0;
+  padding: 0.25rem 0.5rem; /* Reduce padding */
+  font-size: 0.75rem; /* Reduce font size */
+  height: auto; /* Ensure height adjusts to content */
+  line-height: 1.5; /* Adjust line height */
+}
+
+/* Cards */
+.employee-card, .department-card, .employee-performance-card {
+  transition: transform 0.2s;
+}
+
+.employee-card:hover, .department-card:hover, .employee-performance-card:hover {
+  transform: scale(1.05);
+}
+
+.card-body {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.card-text {
+  font-size: 0.9rem;
+}
+
+.card-footer {
+  background-color: #f8f9fa;
+  border-top: 1px solid #e9ecef;
+}
+
+.card-footer .btn {
+  font-size: 0.8rem;
+  margin-right: 0.5rem; /* Add margin to create gap */
+}
+
+.card-footer .btn:last-child {
+  margin-right: 0; /* Remove margin from the last button */
+}
+
+/* Alerts */
+.alert {
+  font-size: 0.9rem;
+}
+
+/* Loading Text */
+.text-center {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* Modal */
+.modal-content {
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+  background-color: #007bff;
+  color: white;
+  border-bottom: none;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.modal-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.close {
+  color: white;
+  opacity: 1;
+}
+
+.close:hover {
+  color: #ccc;
+}
+
+.modal-body {
+  padding: 2rem;
+}
+
+.form-label {
+  font-weight: bold;
+}
+
+.form-control {
+  border-radius: 0.25rem;
+}
+
+.modal-footer {
+  border-top: none;
+  padding: 1rem 2rem;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+/* Smaller Search Button */
+.input-group .btn {
+    border-radius: 0 0.25rem 0.25rem 0;
+    padding: 5px; /* Reduce padding */
+    font-size: 0.75rem; /* Reduce font size */
+    height: 30px; /* Set a specific height */
+    line-height: 1.5; /* Adjust line height */
+    width: auto; /* Adjust width to fit content */
+}
+
+/* Ensure the button is not affected by other styles */
+.input-group .btn-outline-primary.btn-sm {
+    padding: 0.25rem 0.5rem !important; /* Reduce padding */
+    font-size: 0.75rem !important; /* Reduce font size */
+    height: 40px !important; /* Set a specific height */
+    line-height: 1.0 !important; /* Adjust line height */
+    width: auto !important; /* Adjust width to fit content */
+}
+
+
+.input-group{
+  padding-right: 700px;
+
 }

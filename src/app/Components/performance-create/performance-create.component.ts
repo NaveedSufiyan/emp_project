@@ -19,9 +19,10 @@ export class PerformanceCreateComponent {
 
   constructor(private fb: FormBuilder, private performanceService: PerformanceService) {
     this.performanceForm = this.fb.group({
+      id: ['', [Validators.required, Validators.min(1)]],
       title: ['', Validators.required],
       description: [''],
-      rating: ['', [Validators.required, Validators.min(1), Validators.max(5)]]
+      rating: ['',[Validators.required, Validators.min(1), Validators.max(5)]]
     });
   }
 
