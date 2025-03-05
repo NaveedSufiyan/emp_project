@@ -22,9 +22,6 @@
                         {{ showEmpPerformance ? 'Hide Emp Performance' : 'View Emp Performance' }}
                     </button>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="/login">Logout</a>
-                </li>
             </ul>
         </div>
     </div>
@@ -48,7 +45,7 @@
                 <div class="card h-100 employee-card">
                     <div class="card-body">
                         <h5 class="card-title">
-                            {{ employee.firstName }} {{ employee.lastName }}
+                            {{ employee.firstName | uppercase }} {{ employee.lastName |lowercase}}
                         </h5>
                         <p class="card-text">
                             <strong>Email:</strong> {{ employee.email }}<br>
@@ -118,7 +115,7 @@
                     <div class="card-body">
                         <p class="text-center mt-2" ><b>Employee Details</b></p>
                         <h5 class="card-title">
-                            {{ employeeWithPerformance.employee.firstName }} {{ employeeWithPerformance.employee.lastName }}
+                            {{ employeeWithPerformance.employee.firstName | uppercase }} {{ employeeWithPerformance.employee.lastName |uppercase }}
                         </h5>
                         <p class="card-text">
                             <strong>Email:</strong> {{ employeeWithPerformance.employee.email }}<br>
@@ -134,10 +131,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- <div *ngIf="!employeeWithPerformance && !loading && !error && performanceIdToSearch && showEmpPerformance" class="text-center mt-4">
-            No employee performance found for ID: {{ performanceIdToSearch }}.
-        </div> -->
     </div>
 </div>
 

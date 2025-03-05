@@ -18,17 +18,17 @@ export class LoginComponent {
  
   constructor(private authService: AuthService, private router: Router) {}
  
-  login() {
+  login() {  //Login Method 
     this.authService.login({ username: this.username, password: this.password }).subscribe(
       (response) => {
         console.log('Login successful', response);
         // Access token and userId from the response
-        const token = response.token;
-        const userId = response.userId;
+        const token = response.token;  //Extract token from the response.
+        const userId = response.userId; //Extract user id from the response.
         console.log('Token:', token);
         console.log('User ID:', userId);
  
-        this.router.navigate(['/home']);
+        this.router.navigate(['/home']); //After Login it will go to home page
       },
       (error) => {
         console.error('Login failed', error);

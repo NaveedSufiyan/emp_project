@@ -3,6 +3,7 @@ import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { UserpageComponent } from '../userpage/userpage.component';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../Services/auth.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-navbar',
@@ -13,7 +14,7 @@ import { AuthService } from '../../Services/auth.service';
 export class NavbarComponent implements OnInit {
   role: string | null = 'user'; // Initialize with a default role
  
-  constructor(private authService: AuthService, private service: AuthService, private router: Router) { } // Inject AuthService
+  constructor(private authService: AuthService, private service: AuthService, private router: Router) { } 
  
   ngOnInit(): void {
     this.role = this.authService.getUserRole();
@@ -26,4 +27,5 @@ export class NavbarComponent implements OnInit {
     }
     this.router.navigate(['/login']);
   }
+
 }

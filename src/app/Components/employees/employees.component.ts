@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Employee, EmployeeWithPerformance } from '../../model/interface/emp';
 import { EmployeeService } from '../../Services/employee.service';
-import { CommonModule } from '@angular/common';
+import { CommonModule, LowerCasePipe, UpperCasePipe } from '@angular/common';
 import { Department } from '../../model/interface/department';
 import { DepartmentService } from '../../Services/department.service';
 import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-employees',
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule,UpperCasePipe,LowerCasePipe],
   templateUrl: './employees.component.html',
   styleUrl: './employees.component.css'
 })
@@ -88,7 +88,7 @@ export class EmployeesComponent implements OnInit {
 
   loadEmployees(): void {
     this.loading = true;
-    this.employeeService.getEmployees().subscribe({
+    this.employeeService.getEmployees().subscribe({ //Load EMplolyees from service
       next: (employees) => {
         this.employees = employees;
         this.allEmployees = [...employees];
@@ -211,7 +211,7 @@ export class EmployeesComponent implements OnInit {
           this.loading = false;
         },
         error: (error) => {
-          this.error = 'Failed to load employee performance.';
+          this.error = 'Employee Id not FOund.';
           this.loading = false;
           console.error(error);
         }

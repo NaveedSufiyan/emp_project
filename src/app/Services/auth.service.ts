@@ -73,5 +73,12 @@ export class AuthService {
   isAuthenticated(): boolean {
     return !!this.getToken();
   }
+  // isAuthenticated(): boolean {
+  //   if (typeof window !== 'undefined' && window.localStorage) {
+  //     const token = localStorage.getItem('token');
+  //     return !!token; // Returns true if token exists, false otherwise
+  //   }
+  //   return false;
+  // }
 }
 

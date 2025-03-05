@@ -12,19 +12,19 @@ export class DepartmentService {
 
   constructor(private http: HttpClient) { }
 
-  getDepartments(): Observable<any[]> { // Assuming your Department model is 'any' or replace it
+  getDepartments(): Observable<any[]> { 
     return this.http.get<any[]>(`${this.departmentApiUrl}/getAll`);
   }
 
 
-  createDepartment(department: any): Observable<any> { // Assuming your Department model is 'any' or replace it
+  createDepartment(department: any): Observable<any> {
     return this.http.post<any>(this.departmentApiUrl, department);
   }
 
   updateDepartment(id: number, department: Department): Observable<Department> {
     const url = `${this.departmentApiUrl}/update/${id}`;
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' }); // Add this
-    return this.http.put<Department>(url, department, { headers }).pipe( // Add headers
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' }); 
+    return this.http.put<Department>(url, department, { headers }).pipe( 
         catchError(this.handleError)
     );
 }
@@ -45,6 +45,6 @@ private handleError(error: HttpErrorResponse) {
             `Backend returned code ${error.status}, ` + `body was: ${error.error}`
         );
     }
-    return throwError('Something bad happened; please try again later.');
+    return throwError('There is Some Problem Try again.');
 }
 }

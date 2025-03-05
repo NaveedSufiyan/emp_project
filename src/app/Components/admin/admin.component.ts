@@ -9,33 +9,33 @@ import { EmployeeCreateComponent } from '../employee-create/employee-create.comp
 @Component({
   selector: 'app-admin',
   standalone: true,
-  imports: [CommonModule, EmployeeCreateComponent, DepCreateComponent, PerformanceCreateComponent], // Add PerformanceCreateComponent
+  imports: [CommonModule, EmployeeCreateComponent, DepCreateComponent, PerformanceCreateComponent],
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent {
-  showUpdateForm = false;
-  employeeIdToUpdate: number | null = null;
+  showUpdateForm = false;  // Controls visibility of an update form
+  employeeIdToUpdate: number | null = null; // Stores ID of employee being updated
 
-  @ViewChild(PerformanceCreateComponent) performanceCreateComponent!: PerformanceCreateComponent; // Add ViewChild
+  @ViewChild(PerformanceCreateComponent) performanceCreateComponent!: PerformanceCreateComponent; // Gets reference to PerformanceCreateComponent
 
-  constructor(private router: Router) { }
+
+  constructor(private router: Router) { }  // Inject Router service
 
   logout(): void {
-    sessionStorage.removeItem('yourSessionKey');
-    this.router.navigate(['/login']);
+    sessionStorage.removeItem('yourSessionKey');  // Clear session data
+    this.router.navigate(['/login']);  // Navigate to login page
   }
 
   goToEmployees(): void {
-    this.router.navigate(['/employees']);
+    this.router.navigate(['/employees']);  // Navigate to employees list
   }
 
   openPerformanceModal() {
-    this.performanceCreateComponent.openModal();
+    this.performanceCreateComponent.openModal();  // Call method of child component to open modal
   }
 
-  onPerformanceModalClosed() {
-    // This method is called when the performance modal is closed.
-    // You can add logic here to refresh any data in the admin component if needed.
+  onPerformanceModalClosed() {// This method is called when the performance modal is closed.
+    console.log("Performance Modal Closed");
   }
 }

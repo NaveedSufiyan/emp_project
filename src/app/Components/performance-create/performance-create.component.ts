@@ -42,10 +42,12 @@ export class PerformanceCreateComponent {
       this.performanceService.createPerformance(performance).subscribe(
         () => {
           this.closeModal();
+          alert('Performance added successfully!'); // Add success alert here
         },
         (error: HttpErrorResponse) => { // Explicitly type 'error'
           console.error('Error creating performance:', error);
           // Handle error (e.g., display an error message to the user)
+          alert('Failed to add performance. Please try again.'); // Add error alert here
         }
       );
     }

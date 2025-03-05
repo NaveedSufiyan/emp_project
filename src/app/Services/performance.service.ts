@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class PerformanceService {
-  private baseUrl = 'http://localhost:9191/api/performance'; // Replace with your backend URL
+  private baseUrl = 'http://localhost:9191/api/performance'; // url for performance
 
   constructor(private http: HttpClient) { }
 

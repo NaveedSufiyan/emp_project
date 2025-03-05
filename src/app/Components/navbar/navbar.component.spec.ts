@@ -8,6 +8,9 @@ import { Router, RouterModule, RouterOutlet } from '@angular/router';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent implements OnInit {
+alertme() {
+throw new Error('Method not implemented.');
+}
   isLoggedIn = false;
   password: string = ''; // Initialize password with an empty string
 

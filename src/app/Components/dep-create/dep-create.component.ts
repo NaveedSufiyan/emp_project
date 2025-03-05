@@ -26,16 +26,19 @@ export class DepCreateComponent {
   }
 
   createDepartment(): void {
-    if (this.departmentForm.valid) {
-      this.loading = true;
-      this.error = null;
-      this.successMessage = null;
+    if (this.departmentForm.valid) { // first it will check if form is valid
+      this.loading = true;  // Sets loading to true to indicate request in progress
+      this.error = null; // Clears any previous error messages
+      this.successMessage = null; // Clears any previous success messages
 
-      this.departmentService.createDepartment(this.departmentForm.value).subscribe({
+  // Calls the DepartmentService to create a department and subscribes to the observable
+      this.departmentService.createDepartment(this.departmentForm.value).subscribe({  
+     
         next: (createdDepartment) => {
-          this.loading = false;
-          alert('Department created!');
-          this.departmentForm.reset();
+          // After the successful department creation
+          this.loading = false; // Sets loading to false
+          alert('Department created!'); 
+          this.departmentForm.reset(); // Resets the form
           this.closeModal();
         },
         error: (error) => {
@@ -45,11 +48,11 @@ export class DepCreateComponent {
         }
       });
     } else {
-      this.error = 'Please fill in all required fields.';
+      this.error = 'Please fill in all required fields.'; //If forms details are incorrect
     }
   }
 
-  openModal(): void {
+  openModal(): void {  
     this.showModal = true;
   }
 
