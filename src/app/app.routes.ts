@@ -8,7 +8,6 @@ import { HomeComponent } from './Components/home/home.component';
 import { EmployeesComponent } from './Components/employees/employees.component';
 import { UserpageComponent } from './Components/userpage/userpage.component';
 import { authGuard } from './Services/auth.guard';
-import { EmployeeCreateComponent } from './Components/employee-create/employee-create.component';
 import { adminGuardGuard } from './Services/admin-guard.guard';
 
 export const routes: Routes = [

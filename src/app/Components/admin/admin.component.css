@@ -1,155 +1,80 @@
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f8f9fa;
-}
-
+/* Navbar */
 .navbar {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  background-color: #007bff;
 }
 
 .navbar-brand {
-  font-weight: 700;
-  font-size: 1.5rem;
+  color: #fff;
 }
 
 .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.75)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  background-color: #fff;
 }
 
-.nav-link {
-  font-weight: 600;
-  transition: color 0.3s ease;
-}
-
-.nav-link:hover {
-  color: #050404 !important;
-}
-
+/* Jumbotron */
 .jumbotron {
-  background-color: #ffffff;
-  border-radius: 15px;
-  padding: 3rem;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  background-color: #f8f9fa;
+  padding: 2rem 1rem;
+  border-radius: 0.3rem;
 }
 
-.display-4 {
-  font-weight: 700;
+.jumbotron .display-4 {
   color: #007bff;
 }
 
-.lead {
-  font-size: 1.25rem;
-  color: #495057;
+.jumbotron .lead {
+  color: #6c757d;
 }
 
-hr {
-  border-top: 1px solid #dee2e6;
-}
-
-.container.mt-5.pt-5 {
-  padding-top: 5rem !important;
-}
-
-.logout-button {
-  padding: 8px 16px;
-  border: none;
-  border-radius: 4px;
-  font-weight: 500;
-  transition: background-color 0.3s ease;
-}
-
-.logout-button:hover {
-  background-color: black;
-}
-
-employee-create {
-  display: block;
-  margin-top: 2rem;
-}
-
+/* Card */
 .card {
-  border: none;
-  height: 100%;
+  margin-top: 1rem;
 }
 
 .card-header {
-  border-bottom: 1px solid #dee2e6;
-}
-
-.view-employees-button {
-  height: 40px;
-  align-self: flex-start;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
 }
 
 .card-body {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  padding: 1.5rem;
 }
 
-.employee-create-form,
-.form-control-container,
-.view-employees-button {
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.view-employees-button {
-  width: auto;
-}
-
-.form-control-container {
-  display: flex;
-  flex-direction: column;
-}
-
-.form-component {
-  display: flex;
-  flex-direction: column;
-}
-
-.form-section {
-  padding: 20px;
-}
-
-/* Specific button styles for Add Department and Add Employees */
-app-dep-create button,
-employee-create button {
-  padding: 10px 15px; /* Adjust padding as needed */
-  border: none;
-  border-radius: 5px;
-  background-color: #007bff; /* Primary button color */
-  color: white;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  width: 100%; /* Make buttons take full width */
-  box-sizing: border-box; /* Include padding and border in width */
-  margin-top: 10px; /* Add some margin between form fields and button */
-}
-
-app-dep-create button:hover,
-employee-create button:hover {
-  background-color: #0056b3; /* Darker shade on hover */
-}
 .content-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  height: 100%; /* Ensure consistent height */
+  background-color: #ffffff;
+  padding: 1rem;
+  border: 1px solid #e9ecef;
+  border-radius: 0.25rem;
 }
 
 .content-wrapper h6 {
-  margin-bottom: 15px; /* Adjust as needed */
-}
-.content-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
+  margin-bottom: 1rem;
 }
 
-.content-wrapper h6 {
-  margin-bottom: 20px;
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+  transition: background-color 0.3s, border-color 0.3s;
 }
 
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #004085;
+}
+
+/* Performance Section */
+.perfrom {
+  background-color: #ffffff;
+  padding: 1rem;
+  border: 1px solid #e9ecef;
+  border-radius: 0.25rem;
+}
+
+.performance-button {
+  margin-top: 2rem;
+}
+
+.performance-button:hover {
+  background-color: #0056b3;
+  border-color: #004085;
+}

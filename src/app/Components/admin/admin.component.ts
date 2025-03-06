@@ -28,7 +28,7 @@ export class AdminComponent {
   }
 
   goToEmployees(): void {
-    this.router.navigate(['/employees']);  // Navigate to employees list
+    this.router.navigate(['/employees']); // Navigate to employees list
   }
 
   openPerformanceModal() {

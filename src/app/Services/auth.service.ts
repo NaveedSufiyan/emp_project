@@ -17,7 +17,7 @@ export class AuthService {
  
   }
   login(credentials: any): Observable<any> {
-    return this.http.post<any>(`${this.baseUrl}/authenticate`, credentials).pipe(
+    return this.http.post<any>(`${this.baseUrl}/authenticate`, credentials).pipe(  //We used pipe here to catch succesfull response
       map((response: any) => {
         if (response && response.token && response.userId) {
           this.setToken(response.token);
