@@ -32,10 +32,10 @@ export class AdminComponent {
   }
 
   openPerformanceModal() {
-    this.performanceCreateComponent.openModal();  // Call method of child component to open modal
+    this.performanceCreateComponent.openModal();  
   }
 
-  onPerformanceModalClosed() {// This method is called when the performance modal is closed.
+  onPerformanceModalClosed() {
     console.log("Performance Modal Closed");
   }
 }

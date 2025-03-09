@@ -2,8 +2,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Employee, EmployeeWithPerformance } from '../model/interface/emp';
-import { Department } from '../model/interface/department';
-import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'

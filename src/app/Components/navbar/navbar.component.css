@@ -9,12 +9,12 @@ body {
 
 .navbar-brand {
   font-weight: bold;
-  color: #141719; /* Primary blue for the brand */
+  color: #d1d9df; /* Primary blue for the brand */
   margin-left: 10px;
 }
 
 .nav-link {
-  color: #141719; /* Dark gray for nav links */
+  color: #cad7df; /* Dark gray for nav links */
   margin-left: 10px;
   margin-right: 10px;
 }

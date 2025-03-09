@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Department } from '../../model/interface/department';
-import { Employee, EmployeeWithPerformance } from '../../model/interface/emp';
-import { DepartmentService } from '../../Services/department.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+import { EmployeeWithPerformance } from '../../model/interface/emp';
 import { EmployeeService } from '../../Services/employee.service';
 
 
@@ -35,7 +33,7 @@ export class UserpageComponent {
           this.loading = false;
         },
         error: (error) => {
-          this.error = 'Failed to load employee performance.';
+          this.error = 'Employee Id Not Found.';
           this.loading = false;
           console.error(error);
         }
