@@ -88,7 +88,7 @@ export class EmployeesComponent implements OnInit {
 
   loadEmployees(): void {
     this.loading = true;
-    this.employeeService.getEmployees().subscribe({ //Load EMplolyees from service
+    this.employeeService.getEmployees().subscribe({ //Load Employees from service
       next: (employees) => {
         this.employees = employees;
         this.allEmployees = [...employees];
@@ -211,7 +211,7 @@ export class EmployeesComponent implements OnInit {
           this.loading = false;
         },
         error: (error) => {
-          this.error = 'Employee Id not FOund.';
+          this.error = 'Employee Id not Found.';
           this.loading = false;
           console.error(error);
         }
